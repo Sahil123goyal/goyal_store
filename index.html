@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goyal Material Store - Ladies Suits</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            padding: 1.5rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .logo span {
+            color: #ffd700;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffd700;
+        }
+
+        .hero {
+            background: url('https://images.unsplash.com/photo-1523380677598-64d85bc9d7d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            color: white;
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            background: #ff5252;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .section-title {
+            text-align: center;
+            margin: 3rem 0 2rem;
+            font-size: 2.2rem;
+            color: #333;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #6a11cb;
+            margin: 0.5rem auto;
+            border-radius: 2px;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-img {
+            height: 250px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .product-price {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #6a11cb;
+            margin-bottom: 1rem;
+        }
+
+        .product-description {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .add-to-cart {
+            background: #6a11cb;
+            color: white;
+            border: none;
+            padding: 0.7rem 1.2rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            width: 100%;
+            transition: background 0.3s;
+        }
+
+        .add-to-cart:hover {
+            background: #5a0db9;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background: #6a11cb;
+        }
+
+        .footer-column p {
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column ul li a:hover {
+            color: #6a11cb;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: #444;
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-icons a:hover {
+            background: #6a11cb;
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid #444;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul {
+                margin-top: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Goyal <span>Material Store</span></div>
+                <nav>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Suits</a></li>
+                        <li><a href="#">Sarees</a></li>
+                        <li><a href="#">Lehengas</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Elegant Ladies Suits Collection</h1>
+                <p>Discover our exclusive range of beautifully crafted ladies suits for every occasion</p>
+                <a href="#" class="btn">Shop Now</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <h2 class="section-title">Our Premium Collection</h2>
+        <div class="products" id="products-container">
+            <!-- Products will be dynamically added here -->
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>About Us</h3>
+                    <p>Goyal Material Store has been providing high-quality ladies suits for over 20 years. We take pride in our craftsmanship and attention to detail.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">New Arrivals</a></li>
+                        <li><a href="#">Best Sellers</a></li>
+                        <li><a href="#">Sale Items</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Fashion Street, Mumbai, India</p>
+                    <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                    <p><i class="fas fa-envelope"></i> info@goyalmaterialstore.com</p>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 Goyal Material Store. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Sample product data
+        const products = [
+            { id: 1, name: "Floral Print Suit", price: "₹1,899", image: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", description: "Beautiful floral print suit with elegant design." },
+            { id: 2, name: "Embroidered Silk Suit", price: "₹3,499", image: "https://images.unsplash.com/photo-1581044777550-4cfa60707c03?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", description: "Luxurious silk suit with intricate embroidery." },
+            { id: 3, name: "Anarkali Style Suit", price: "₹2,299", image: "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", description: "Graceful Anarkali style suit with flowing silhouette." },
+            { id: 4, name: "Designer Party Wear Suit", price: "₹4,999", price: "₹4,999", image: "https://images.unsplash.com/photo-1529903384028-929ae5dccdf1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", description: "Elegant party wear suit with designer details." },
+            { id: 5, name: "Cotton Printed Suit", price: "₹1,599", image: "https://images.unsplash.com/photo-1585487000126-79e6bb7b24e6?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", description: "Comfortable cotton suit with vibrant prints." },
+            { id: 6, name: "Chikankari Work Suit", price: "₹2,899", image: "https://images.unsplash.com/photo-1585487000152-17c88a4d8e2e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", description: "Traditional Chikankari work suit with delicate embroidery." },
+            { id: 7, name: "Georgette Suit Set", price: "₹2,199", image: "https://images.unsplash.com/photo-1572804013427-4d7ca7268217?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", description: "Flowy georgette suit set with elegant drape." },
+            { id: 8, name: "Banarasi Silk Suit", price: "₹5,499", image: "https://images.unsplash.com/photo-1581044777550-4cfa60707c03?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", description: "Luxurious Banarasi silk suit with rich zari work." },
+            { id: 9, name: "Casual Wear Suit", price: "₹1,299", image: "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", description: "Comfortable casual wear suit for daily use." },
+            { id: 10, name: "Designer Lehenga Style Suit", price: "₹3,799", image: "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", description: "Lehenga style suit with designer appeal." },
+            { id: 11, name: "Kalamkari Printed Suit", price: "₹2,499", image: "https://images.unsplash.com/photo-1585487000126-79e6bb7b24e6?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", description: "Artistic Kalamkari printed suit with traditional motifs." },
+            { id: 12, name: "Net Embroidered Suit", price: "₹3,299", image: "https://images.unsplash.com/photo-1529903384028-929ae5dccdf1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", description: "Elegant net fabric suit with beautiful embroidery." },
+            { id: 13, name: "Bandhani Print Suit", price: "₹2,699", image: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", description: "Traditional Bandhani print suit with vibrant colors." },
+            { id: 14, name: "Velvet Suit Set", price: "₹4,299", image: "https://images.unsplash.com/photo-1581044777550-4cfa60707c03?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", description: "Luxurious velvet suit set for special occasions." },
+            { id: 15, name: "Cotton Silk Suit", price: "₹2,199", image: "https://images.unsplash.com/photo-1572804013427-4d7ca7268217?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", description: "Comfortable cotton silk blend suit with elegant look." },
+            { id: 16, name: "Phulkari Work Suit", price: "₹3,899", image: "https://images.unsplash.com/photo-1585487000152-17c88a4d8e2e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", description: "Traditional Phulkari work suit with vibrant embroidery." },
+            { id: 17, name: "Designer Jacket Style Suit", price: "₹4,599", image: "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", description: "Trendy jacket style suit with designer appeal." },
+            { id: 18, name: "Chanderi Silk Suit", price: "₹3,499", image: "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", description: "Elegant Chanderi silk suit with subtle sheen." },
+            { id: 19, name: "Printed Palazzo Suit", price: "₹2,399", image: "https://images.unsplash.com/photo-1585487000126-79e6bb7b24e6?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", description: "Comfortable palazzo style suit with trendy prints." },
+            { id: 20, name: "Heavy Embroidered Suit", price: "₹5,999", image: "https://images.unsplash.com/photo-1529903384028-929ae5dccdf1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", description: "Heavily embroidered suit for wedding functions." },
+            { id: 21, name: "Kota Doria Suit", price: "₹2,899", image: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", description: "Lightweight Kota Doria suit with checkered pattern." },
+            { id: 22, name: "Designer Saree Style Suit", price: "₹3,799", image: "https://images.unsplash.com/photo-1581044777550-4cfa60707c03?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", description: "Saree style suit with elegant drape and design." },
+            { id: 23, name: "Printed Georgette Suit", price: "₹2,599", image: "https://images.unsplash.com/photo-1572804013427-4d7ca7268217?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", description: "Flowy georgette suit with beautiful prints." },
+            { id: 24, name: "Zari Work Suit", price: "₹4,899", image: "https://images.unsplash.com/photo-1585487000152-17c88a4d8e2e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", description: "Elegant suit with intricate zari work details." },
+            { id: 25, name: "Casual Cotton Suit", price: "₹1,499", image: "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", description: "Comfortable cotton suit for everyday wear." },
+            { id: 26, name: "Designer Net Suit", price: "₹3,999", image: "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", description: "Stylish net suit with designer embroidery." },
+            { id: 27, name: "Printed Linen Suit", price: "₹2,799", image: "https://images.unsplash.com/photo-1585487000126-79e6bb7b24e6?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", description: "Comfortable linen suit with elegant prints." },
+            { id: 28, name: "Embroidered Organza Suit", price: "₹4,299", image: "https://images.unsplash.com/photo-1529903384028-929ae5dccdf1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", description: "Sheer organza suit with delicate embroidery." },
+            { id: 29, name: "Traditional Patiala Suit", price: "₹2,199", image: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", description: "Comfortable Patiala style suit with traditional appeal." },
+            { id: 30, name: "Designer Wedding Suit", price: "₹6,499", image: "https://images.unsplash.com/photo-1581044777550-4cfa60707c03?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", description: "Exquisite wedding suit with heavy work and embellishments." }
+        ];
+
+        // Function to display products
+        function displayProducts() {
+            const productsContainer = document.getElementById('products-container');
+            
+            products.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                
+                productCard.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">${product.name}</h3>
+                        <p class="product-price">${product.price}</p>
+                        <p class="product-description">${product.description}</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                `;
+                
+                productsContainer.appendChild(productCard);
+            });
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', displayProducts);
+    </script>
+</body>
+</html>
